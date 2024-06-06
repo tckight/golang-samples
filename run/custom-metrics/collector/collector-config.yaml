@@ -50,7 +50,7 @@ processors:
       action: insert
     - key: service.testdim1
       value: "value_with_special_characters!@#$%^&*()"
-      action: insert
+      action: upsert
 
 exporters:
   googlemanagedprometheus: # Note: this is intentionally left blank   
