@@ -48,6 +48,9 @@ processors:
     - key: service.name
       value: ${env:K_SERVICE}
       action: insert
+    - key: service.testdim1
+      value: "value_with_special_characters!@#$%^&*()"
+      action: insert
 
 exporters:
   googlemanagedprometheus: # Note: this is intentionally left blank   
