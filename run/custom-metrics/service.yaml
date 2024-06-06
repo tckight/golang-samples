@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: TestOTLP1
+  name: test-otlp-1
   annotations:
     run.googleapis.com/launch-stage: BETA
 spec:
