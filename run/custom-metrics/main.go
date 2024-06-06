@@ -27,6 +27,7 @@ import (
 	sdkmetric "go.opentelemetry.io/otel/sdk/metric"
 	"go.opentelemetry.io/otel/sdk/resource"
 	semconv "go.opentelemetry.io/otel/semconv/v1.24.0"
+	"go.opentelemetry.io/otel/attribute"
 )
 
 var counter metric.Int64Counter
@@ -61,6 +62,7 @@ func setupCounter(ctx context.Context) func(context.Context) error {
 		resource.NewWithAttributes(
 			semconv.SchemaURL,
 			semconv.ServiceName(serviceName),
+			attribute.String("example_attribute","value_with_special_characters!@#$%^&*()"),
 		),
 	)
 	if err != nil {

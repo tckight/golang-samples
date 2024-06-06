@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: tylertest1
+  name: TestOTLP1
   annotations:
     run.googleapis.com/launch-stage: BETA
 spec:
@@ -11,14 +11,14 @@ spec:
         run.googleapis.com/container-dependencies: "{app:[collector]}"
     spec:
       containers:
-      - image: us-west2-docker.pkg.dev/cci-sandbox-ananilku6100/run-otel/sample-metrics-app
+      - image: us-west3-docker.pkg.dev/cci-sandbox-ananilku6100/run-otel/sample-metrics-app
         name: app
         ports:
         - containerPort: 8080
         env:
         - name: "OTEL_EXPORTER_OTLP_ENDPOINT"
           value: "http://localhost:4317"
-      - image: us-west2-docker.pkg.dev/cci-sandbox-ananilku6100/run-otel/otel-collector-metrics
+      - image: us-west3-docker.pkg.dev/cci-sandbox-ananilku6100/run-otel/otel-collector-metrics
         name: collector
         startupProbe:
           httpGet:
